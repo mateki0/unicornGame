@@ -8,9 +8,7 @@ function startGame() {
   uni = new makeUnicorn(70, 70, 0, 100, "unicorn");
   score = new component('30px', 'Consolas', 'white', 700, 30, 'text');
   myGameArea.start();
-
 }
-
 var myGameArea = {
   canvas: document.createElement('canvas'),
   start: function() {
@@ -43,9 +41,6 @@ var myGameArea = {
   clear: function() {
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
   },
-
-
-
 
 }
 
@@ -149,14 +144,10 @@ function makeUnicorn(width, height, x, y, type) {
 
 }
 
-
-
-
 function makeTerrain() {
   let ctx = myGameArea.context;
   ctx.fillStyle = "yellow"
   ctx.fillRect(0, 430, myGameArea.canvas.width, 20);
-
 }
 
 function everyInterval(n) {
@@ -171,7 +162,6 @@ function jump(n) {
 }
 
 function updateGameArea() {
-
   for (i = 0; i < myObstacles.length; i += 1) {
     if (uni.crashWith(myObstacles[i])) {
       myGameArea.stop();
@@ -181,8 +171,6 @@ function updateGameArea() {
 
   var x, height, minHeight, maxHeight;
   myGameArea.clear();
-
-
   myGameArea.frameNo += 1;
   if (myGameArea.frameNo == 1 || everyInterval(150)) {
     x = myGameArea.canvas.width;
@@ -216,8 +204,6 @@ function updateGameArea() {
   } else {
     jump(1.2);
   }
-
-
   score.text = "DIAMONDS: " + myGameArea.frameNo;
   score.update();
   makeTerrain();
